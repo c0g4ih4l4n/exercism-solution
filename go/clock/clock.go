@@ -39,20 +39,7 @@ func normalize(hour, minute int) (int, int) {
 
 // String : toString
 func (c Clock) String() string {
-	var result string
-
-	switch {
-	case c.hour < 10 && c.minute < 10:
-		result = fmt.Sprintf("0%d:0%d", c.hour, c.minute)
-	case c.hour < 10:
-		result = fmt.Sprintf("0%d:%d", c.hour, c.minute)
-	case c.minute < 10:
-		result = fmt.Sprintf("%d:0%d", c.hour, c.minute)
-	default:
-		result = fmt.Sprintf("%d:%d", c.hour, c.minute)
-	}
-
-	return result
+	return fmt.Sprintf("%02d:%02d", c.hour, c.minute)
 }
 
 // Add : Minute to clock
