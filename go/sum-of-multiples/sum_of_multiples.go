@@ -1,16 +1,26 @@
 package summultiples
 
-import "fmt"
-
 const testVersion = 2
 
 // SumMultiples :
 func SumMultiples(limit int, divisors ...int) (sum int) {
 
-	//ch3, ch5, ch15 := make(chan int), make(chan int), make(chan int)
-
-	for divisor := range divisors {
-		fmt.Println(divisor)
+	if len(divisors) == 0 {
+		return
 	}
+
+	for i := 1; i < limit; i++ {
+		// loop through divisors
+		// if one mod == 0
+		// + that i and break
+		// to make sure one i plus only one time
+		for _, value := range divisors {
+			if i%value == 0 {
+				sum += i
+				break
+			}
+		}
+	}
+
 	return sum
 }
